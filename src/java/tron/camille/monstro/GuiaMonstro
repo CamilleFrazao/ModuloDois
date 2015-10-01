@@ -1,0 +1,22 @@
+1º Módulo - Aperfeiçoar a lógica de programação 
+	Criar um sistema de cadastro de produtos.
+	 - O produto deve conter os seguintes dados:
+		Nome, Quantidade, Unidade e valor.
+		
+ - O sistema deve salvar os produtos cadastrados em um bloco de notas.
+
+*metodo para id
+ 
+ - Deve ser possível buscar esses produtos, assim como excluir e editar.
+ - Utilizar uma classe apenas com o método main
+ - A interface com o usuário deve ser através de console.
+ - Deve haver uma menu com as opções para o usuário, ex:
+	Buscar, Cadastrar Novo, Editar, Excluir, Listar, Sair.
+
+
+2º Módulo - Web e Interface com o usuário
+Criar uma interface web para o sistema feito anteriormente.
+A interface web deve ser feita com Servlet3.
+Deve conter todas as opções que já existiam anteriormente(cadastrar, editar, lista etc..).
+
+*Bonus extras para refatoração de código. "Don't repeat yourself".
