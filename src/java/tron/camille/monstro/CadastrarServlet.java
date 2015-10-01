@@ -26,33 +26,28 @@ public class CadastrarServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         File arquivo = new File("/media/camille/15FB-3121/camille/src/main/java/tron/camille/monstro/bancoMonstro");
-        
+
         Monstro m = new Monstro();
 
         FileWriter fw = new FileWriter(arquivo, true);
         BufferedWriter bw = new BufferedWriter(fw);
 
-        System.out.println("ID: ");
-        m.setId(entrada.next());
+        m.setId(req.getParameter("campoCadastroID"));
 
-        System.out.println("NOME: ");
-        m.setNome(entrada.next());
+        m.setNome(req.getParameter("campoCadastroNome"));
 
-        System.out.println("QUANTIDADE: ");
-        m.setQuantidade(entrada.nextInt());
+        m.setQuantidade(Integer.parseInt(req.getParameter("campoCadastroQuantidade")));
 
-        System.out.println("UNIDADE: ");
-        m.setUnidade(entrada.nextInt());
+        m.setUnidade(Integer.parseInt(req.getParameter("campoCadastroUnidade")));
 
-        System.out.println("VALOR: ");
-        m.setValor(entrada.nextDouble());
+        m.setValor(Double.parseDouble(req.getParameter("campoCadastroValor")));
 
         bw.write(m.getId() + ";" + m.getNome() + ";" + m.getQuantidade()
                 + ";" + m.getUnidade() + ";" + m.getValor());
         bw.newLine();
 
         m = new Monstro();
-
+        
     }
 
 }
