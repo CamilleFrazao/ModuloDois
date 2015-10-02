@@ -26,25 +26,14 @@
                 </tr>
 
                 <tr>
-                    <c:forEach items="${listaId}" var="id" >
-                        <td>${id}</td>
+                    <c:forEach items="${listaM}" var="id" >
+                        <td>${id.getId()}</td>
+                        <td>${id.getNome()}</td>
+                        <td>${id.getQuantidade()}</td>
+                        <td>${id.getUnidade()}</td>
+                        <td>${id.getValor()}</td>
                     </c:forEach>
 
-                    <c:forEach items="${listaNome}" var="nome">
-                        <td>${nome}</td>
-                    </c:forEach>
-
-                    <c:forEach items="${listaQuantidade}" var="quant">
-                        <td>${quant}</td>
-                    </c:forEach>
-
-                    <c:forEach items="${listaUnidade}" var="unid">
-                        <td>${unid}</td>
-                    </c:forEach>
-
-                    <c:forEach items="${listaValor}" var="valor">
-                        <td>${valor}</td>
-                    </c:forEach>
                 </tr>
             </table>
         </div>       

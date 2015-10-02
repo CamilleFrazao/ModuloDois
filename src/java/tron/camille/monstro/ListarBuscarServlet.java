@@ -5,6 +5,7 @@
  */
 package tron.camille.monstro;
 
+import com.sun.faces.util.MostlySingletonSet;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -33,43 +34,38 @@ public class ListarBuscarServlet extends HttpServlet {
         FileReader fr = new FileReader(arquivo);
         BufferedReader br = new BufferedReader(fr);
 
-        List<String> id = new ArrayList<>();
-        List<String> nome = new ArrayList<>();
-        List<String> quant = new ArrayList<>();
-        List<String> unid = new ArrayList<>();
-        List<String> valor = new ArrayList<>();
-//        String[] s;
+        //        String[] s;
+        Monstro m = new Monstro();
+        ArrayList<Monstro> listaMonstros = new ArrayList<>();
 
         while (br.ready()) {
 
             String linha = br.readLine();
 
-            String []s = linha.split(";");
-            
-            id.add(s[0]);
-            nome.add(s[1]);
-            quant.add(s[2]);
-            unid.add(s[3]);
-            valor.add(s[4]);
+            String[] s = linha.split(";");
+
+            m.setId(s[0]);
+            m.setNome(s[1]);
+            m.setQuantidade(Integer.parseInt(s[2]));
+            m.setUnidade(Integer.parseInt(s[3]));
+            m.setValor(Double.parseDouble(s[4]));
+
+            listaMonstros.add(m);
         }
 
-        
-        for(int i = 0; i < id.size(); i++){
-            System.out.println(id.get(i));
+        for (int i = 0; i < listaMonstros.size(); i++) {
+
+            System.out.println(listaMonstros.get(i).getId());
+
         }
-        
-        req.setAttribute("listaId", id);
-        req.setAttribute("listaNome", nome);
-        req.setAttribute("listaQuantidade", quant);
-        req.setAttribute("listaUnidade", unid);
-        req.setAttribute("listaValor", valor);
-        
+
+        req.setAttribute("listaM", listaMonstros);
         RequestDispatcher r = req.getRequestDispatcher("listarBuscar.jsp");
         r.forward(req, resp);
-        
+
         fr.close();
         br.close();
-        
+
     }
 
 }
