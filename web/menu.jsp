@@ -9,23 +9,42 @@
 <html>
     <head>
         <!-- Bootstrap -->
+        <link href="http://monkeydrives.com/images/triforce-symbol-4.jpg" rel="shortcut icon" type="image/x-icon">
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Menu</title>
     </head>
     <body>
 
-        <div class="row col-md-3 col-md-offset-3">
-            <h1>Menu</h1>    
+        <!-- tudo -->
+        <div>
+
+            <!-- cabeçalho -->
+            <div class="row">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-6">
+                    <h1>Menu</h1>  
+                </div>
+                <div class="col-sm-3"></div>
+            </div>
+
+            <!-- corpo-->
+            <div class="row">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-6">
+                    <p><a href="cadastro.jsp" >Cadastrar</a>
+                    <p><a href="listarBuscar">Listar</a>
+                    <p><a href="listarBuscar.jsp">Buscar</a> 
+                </div>
+                <div class="col-sm-3"></div>
+            </div>
             
-             <div class="row col-md-3 col-md-offset-0">
-            <br><a href="cadastro.jsp" >Cadastrar</a>
-            <br><a href="listarBuscar">Listar</a>
-            <br><a href="listarBuscar.jsp">Buscar</a>    
-        </div>
-        </div>
+            <!-- rodapé -->
+            <div>
 
-       
+            </div>
 
+
+        </div>
     </body>
 </html>
