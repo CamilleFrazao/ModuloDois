@@ -27,15 +27,11 @@
 
                 <div class="form-group">
                     <label>Buscar:</label>
-                    <input type="text" class="form-control">
+                    <input type="text" name="campoBuscar"class="form-control">
                 </div>                
-                
-                    <button type="submit" class="btn btn-success">ok</button>
-                
-                <div>
-                    <output class="form-group">${busca.getId()}/${busca.getNome()}/${busca.getQuantidade()}/${busca.getUnidade()}/
-                        ${busca.getValor()}</output>                    
-                </div>
+
+                <button type="submit" class="btn btn-success">ok</button>
+
             </form>           
         </div>        
 
@@ -48,7 +44,7 @@
                     <th>unidade</th>
                     <th>valor</th>
                 </tr>
-                <c:forEach items="${listaM}" var="id" >
+                <c:forEach items="${listar}" var="id" >
                     <tr>
                         <td>${id.getId()}</td>
                         <td>${id.getNome()}</td>

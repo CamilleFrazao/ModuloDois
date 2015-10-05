@@ -43,9 +43,9 @@ public class ListarBuscarServlet extends HttpServlet {
         br2 = new BufferedReader(fr2);
 
         req.getParameter("campoBuscar");
-
+        
         listaMonstros = new ArrayList<>();
-
+        
         while (br2.ready()) {
             String linha = br2.readLine();
 
@@ -65,11 +65,16 @@ public class ListarBuscarServlet extends HttpServlet {
         for (int i = 0; i < listaMonstros.size(); i++) {
             if (listaMonstros.get(i).getId().equals(req.getParameter("campoBuscar"))) {
                 m = new Monstro();
+                
                 m = listaMonstros.get(i);
+                
+                listaMonstros = new ArrayList<>();
+                
+                listaMonstros.add(m);
             }
         }
 
-        req.setAttribute("busca", m);
+        req.setAttribute("listar", listaMonstros);
         RequestDispatcher rd = req.getRequestDispatcher("listarBuscar.jsp");
         rd.forward(req, resp);
 
@@ -84,6 +89,7 @@ public class ListarBuscarServlet extends HttpServlet {
         FileReader fr2 = new FileReader(arquivo);
         BufferedReader br2 = new BufferedReader(fr2);
 
+        //String[] s;
         m = new Monstro();
 
         listaMonstros = new ArrayList<>();
@@ -108,11 +114,15 @@ public class ListarBuscarServlet extends HttpServlet {
 
         for (int i = 0; i < listaMonstros.size(); i++) {
 
-            System.out.println(listaMonstros.get(i).getId());
+            System.out.println("listar: "+listaMonstros.get(i).getId());
+            
+            m = new Monstro();
+            
+            m = listaMonstros.get(i);
 
         }
 
-        req.setAttribute("listaM", listaMonstros);
+        req.setAttribute("listar", listaMonstros);
         RequestDispatcher r = req.getRequestDispatcher("listarBuscar.jsp");
         r.forward(req, resp);
 
