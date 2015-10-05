@@ -20,3 +20,12 @@ A interface web deve ser feita com Servlet3.
 Deve conter todas as opções que já existiam anteriormente(cadastrar, editar, lista etc..).
 
 *Bonus extras para refatoração de código. "Don't repeat yourself".
+
+3º Módulo - Banco de dados
+Trocar o modo de armazenamento das informações do sistema utilizando banco de dados com JDBC.
+
+Dicas:
+Faça sem pressa, pois com pressa não vai aprender nada, apenas decorar.
+Não pegue código pronto, mesmo que não dê Ctrl c,Ctrl v, copiar olhando dá no mesmo.
+Se precisar de ajuda peça mas antes force a mente.
+O que esta descrito ai é o minimo, experimente, crie coisas mais complexas.

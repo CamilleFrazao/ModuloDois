@@ -51,7 +51,7 @@ public class CadastrarServlet extends HttpServlet {
         bw.close();
         fw.close();
         
-        resp.sendRedirect("menu.jsp");
+        resp.sendRedirect("listarBuscar");
         
         
         

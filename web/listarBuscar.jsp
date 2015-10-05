@@ -19,7 +19,8 @@
 
         <div class="row col-md-3 col-md-offset-3">
             <h1>Listar</h1>
-            <a href="menu.jsp">Menu</a>
+            <br><a href="menu.jsp">Menu</a>
+            <br><a href="cadastro.jsp">Cadastro</a>
         </div>
 
         <div class="row col-md-6 col-md-offset-3">
