@@ -14,7 +14,10 @@
     <body>
         <h1>Menu</h1>
         
-        <a href="cadastro.jsp" >Cadastrar</a>
+        <br><a href="cadastro.jsp" >Cadastrar</a>
+        <br><a href="listarBuscar">Listar</a>
+        <br><a href="listarBuscar.jsp">Buscar</a>
+        
         
     </body>
 </html>
