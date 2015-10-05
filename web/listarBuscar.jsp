@@ -10,12 +10,24 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Listar / Buscar</title>
     </head>
     <body>
 
         <div>
+            <form method="post" action="listarBuscar">
+                Buscar: <input type="text" name="campoBuscar"/>
+                <button type="submit">ok</button>
+                
+                <output>${busca.getId()}/${busca.getNome()}/${busca.getQuantidade()}/${busca.getUnidade()}/
+                ${busca.getValor()}</output>
+                
+            </form>           
+        </div>        
+
+        <div>
             <h1>Listar</h1>
+            <a href="menu.jsp">Menu</a>
             <table>
                 <tr>
                     <th>id</th>
@@ -24,17 +36,15 @@
                     <th>unidade</th>
                     <th>valor</th>
                 </tr>
-
-                <tr>
-                    <c:forEach items="${listaM}" var="id" >
+                <c:forEach items="${listaM}" var="id" >
+                    <tr>
                         <td>${id.getId()}</td>
                         <td>${id.getNome()}</td>
                         <td>${id.getQuantidade()}</td>
                         <td>${id.getUnidade()}</td>
                         <td>${id.getValor()}</td>
-                    </c:forEach>
-
-                </tr>
+                    </tr>
+                </c:forEach>
             </table>
         </div>       
 

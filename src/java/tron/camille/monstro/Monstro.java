@@ -7,8 +7,7 @@ public class Monstro {
 	private int quantidade;
 	private int unidade;
 	private Double valor;
-        
-	
+        	
 	public String getId() {
 		return id;
 	}

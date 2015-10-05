@@ -14,12 +14,15 @@
     <body>
         <h1>Cadastro de Produto</h1>
         
-        <form method="post" action="cadastrar">
-            Id: <input name="campoCadastroId" type="text"/>
+        <form action="cadastrar" method="post">
+            Id: <input name="campoCadastroID" type="text"/>
             Nome: <input name="campoCadastroNome" type="text"/>
             Quantidade: <input name="campoCadastroQuantidade" type="text"/>
             Unidade: <input name="campoCadastroUnidade" type="text"/>
             Valor: <input name="campoCadastroValor" type="text"/>
+            
+            <button type="submit">Cadastrar</button>
+            
         </form>
         
     </body>

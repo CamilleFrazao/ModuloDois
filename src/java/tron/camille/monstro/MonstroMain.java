@@ -84,8 +84,9 @@ public class MonstroMain {
 
                     while (br.ready()) {
 
-                        System.out.println(br.readLine());
-
+                        String linha = br.readLine();   
+                        
+                        
                     }
 
                     fr.close();
