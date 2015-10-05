@@ -45,7 +45,7 @@ public class ListarBuscarServlet extends HttpServlet {
         req.getParameter("campoBuscar");
 
         listaMonstros = new ArrayList<>();
-        
+
         while (br2.ready()) {
             String linha = br2.readLine();
 
@@ -66,7 +66,6 @@ public class ListarBuscarServlet extends HttpServlet {
             if (listaMonstros.get(i).getId().equals(req.getParameter("campoBuscar"))) {
                 m = new Monstro();
                 m = listaMonstros.get(i);
-                System.out.println(m);
             }
         }
 
@@ -85,7 +84,6 @@ public class ListarBuscarServlet extends HttpServlet {
         FileReader fr2 = new FileReader(arquivo);
         BufferedReader br2 = new BufferedReader(fr2);
 
-        //String[] s;
         m = new Monstro();
 
         listaMonstros = new ArrayList<>();

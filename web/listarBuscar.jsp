@@ -9,26 +9,38 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <!-- Bootstrap -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Listar / Buscar</title>
     </head>
     <body>
 
-        <div>
-            <form method="post" action="listarBuscar">
-                Buscar: <input type="text" name="campoBuscar"/>
-                <button type="submit">ok</button>
+        <div class="row col-md-3 col-md-offset-3">
+            <h1>Listar</h1>
+            <a href="menu.jsp">Menu</a>
+        </div>
+
+        <div class="row col-md-6 col-md-offset-3">
+            <form class="form-group" method="post" action="listarBuscar">
+
+                <div class="form-group">
+                    <label>Buscar:</label>
+                    <input type="text" class="form-control">
+                </div>                
                 
-                <output>${busca.getId()}/${busca.getNome()}/${busca.getQuantidade()}/${busca.getUnidade()}/
-                ${busca.getValor()}</output>
+                    <button type="submit" class="btn btn-success">ok</button>
                 
+                <div>
+                    <output class="form-group">${busca.getId()}/${busca.getNome()}/${busca.getQuantidade()}/${busca.getUnidade()}/
+                        ${busca.getValor()}</output>                    
+                </div>
             </form>           
         </div>        
 
-        <div>
-            <h1>Listar</h1>
-            <a href="menu.jsp">Menu</a>
-            <table>
+        <div class="row col-md-6 col-md-offset-3">           
+            <table class="table table-bordered">
                 <tr>
                     <th>id</th>
                     <th>nome</th>
