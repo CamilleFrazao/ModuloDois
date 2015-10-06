@@ -24,6 +24,8 @@ Deve conter todas as opções que já existiam anteriormente(cadastrar, editar, 
 3º Módulo - Banco de dados
 Trocar o modo de armazenamento das informações do sistema utilizando banco de dados com JDBC.
 
+http://www.caelum.com.br/apostila-java-web/bancos-de-dados-e-jdbc/#2-1-por-que-usar-um-banco-de-dados
+
 Dicas:
 Faça sem pressa, pois com pressa não vai aprender nada, apenas decorar.
 Não pegue código pronto, mesmo que não dê Ctrl c,Ctrl v, copiar olhando dá no mesmo.
