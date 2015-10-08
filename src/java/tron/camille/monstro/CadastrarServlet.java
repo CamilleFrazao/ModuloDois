@@ -5,10 +5,11 @@
  */
 package tron.camille.monstro;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,36 +26,34 @@ public class CadastrarServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        File arquivo = new File("/home/camille/ModuloDois/src/java/tron/camille/monstro/bancoMonstro");
+        try {
 
-        Monstro m = new Monstro();
+            DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+            Connection conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_monstro", "root", "root");
 
-        FileWriter fw = new FileWriter(arquivo, true);
-        BufferedWriter bw = new BufferedWriter(fw);
+            System.out.println("INSERT INTO Monstro (id , nome, quantidade, unidade, valor) values (" + 
+                    req.getParameter("campoCadastroID") + ",\"" + req.getParameter("campoCadastroNome") + "\"," + 
+                    req.getParameter("campoCadastroQuantidade") + "," + req.getParameter("campoCadastroUnidade") + "," + 
+                    req.getParameter("campoCadastroValor") + ")");
+            
+            conexao.prepareStatement("INSERT INTO Monstro (id , nome, quantidade, unidade, valor) values "
+                    + "(" + req.getParameter("campoCadastroID") + ",\"" + 
+                    req.getParameter("campoCadastroNome") + "\"," + req.getParameter("campoCadastroQuantidade") + "," + 
+                    req.getParameter("campoCadastroUnidade") + "," + req.getParameter("campoCadastroValor") + ")").execute();
+            
+            conexao.commit();
+            conexao.close();
+            
+        } catch (Exception ex) {
 
-        m.setId(req.getParameter("campoCadastroID"));
+            Logger.getLogger(CadastrarServlet.class.getName()).log(Level.SEVERE, null, ex);
 
-        m.setNome(req.getParameter("campoCadastroNome"));
+        } finally {
 
-        m.setQuantidade(Integer.parseInt(req.getParameter("campoCadastroQuantidade")));
+        }
 
-        m.setUnidade(Integer.parseInt(req.getParameter("campoCadastroUnidade")));
-
-        m.setValor(Double.parseDouble(req.getParameter("campoCadastroValor")));
-
-        bw.write(m.getId() + ";" + m.getNome() + ";" + m.getQuantidade()
-                + ";" + m.getUnidade() + ";" + m.getValor());
-        bw.newLine();
-
-        m = new Monstro();
-        
-        bw.close();
-        fw.close();
-        
         resp.sendRedirect("listarBuscar");
-        
-        
-        
+
     }
 
 }
