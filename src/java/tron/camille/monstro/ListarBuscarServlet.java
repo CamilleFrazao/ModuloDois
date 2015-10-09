@@ -5,11 +5,14 @@
  */
 package tron.camille.monstro;
 
-import com.sun.faces.util.MostlySingletonSet;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
@@ -26,108 +29,96 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(urlPatterns = "/listarBuscar")
 public class ListarBuscarServlet extends HttpServlet {
 
-    File arquivo = new File("/home/camille/ModuloDois/src/java/tron/camille/monstro/bancoMonstro");
-
-    FileReader fr2;
-    BufferedReader br2;
-
     Monstro m;
 
     ArrayList<Monstro> listaMonstros;
 
-    @Override
+    @Override//buscar
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-        //buscar        
-        fr2 = new FileReader(arquivo);
-        br2 = new BufferedReader(fr2);
 
         req.getParameter("campoBuscar");
         
-        listaMonstros = new ArrayList<>();
-        
-        while (br2.ready()) {
-            String linha = br2.readLine();
+        List<Monstro> monstros = new ArrayList<>();
 
-            String[] s = linha.split(";");
+        try {
 
-            m = new Monstro();
+            //registar driver
+            DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+            //abrir conexao
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_monstro", "root", "root");
 
-            m.setId(s[0]);
-            m.setNome(s[1]);
-            m.setQuantidade(Integer.parseInt(s[2]));
-            m.setUnidade(Integer.parseInt(s[3]));
-            m.setValor(Double.parseDouble(s[4]));
+            //sql
+            PreparedStatement sql = con.prepareStatement("SELECT * FROM Monstro where id =" + req.getParameter("campoBuscar") + "");
 
-            listaMonstros.add(m);
-        }
+            //executeQuery
+            ResultSet rs = sql.executeQuery();
 
-        for (int i = 0; i < listaMonstros.size(); i++) {
-            if (listaMonstros.get(i).getId().equals(req.getParameter("campoBuscar"))) {
-                m = new Monstro();
+            while (rs.next()) {
                 
-                m = listaMonstros.get(i);
+                Monstro m = new Monstro();
                 
-                listaMonstros = new ArrayList<>();
+                m.setId(rs.getString("id"));
+                m.setNome(rs.getString("nome"));
+                m.setQuantidade(rs.getInt("quantidade"));
+                m.setUnidade(rs.getInt("unidade"));
+                m.setValor(rs.getDouble("valor"));
                 
-                listaMonstros.add(m);
+                monstros.add(m);          
+                            
             }
+
+        } catch (Exception e) {
+            
+            System.out.println("não foi possivel buscar");
+            
         }
 
-        req.setAttribute("listar", listaMonstros);
+        req.setAttribute("listar", monstros);
         RequestDispatcher rd = req.getRequestDispatcher("listarBuscar.jsp");
         rd.forward(req, resp);
-
-        fr2.close();
-        br2.close();
 
     }
 
     @Override //listar
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        FileReader fr2 = new FileReader(arquivo);
-        BufferedReader br2 = new BufferedReader(fr2);
+        try {
+            //driver
+            DriverManager.registerDriver(new com.mysql.jdbc.Driver());
 
-        //String[] s;
-        m = new Monstro();
+            //abrir conexao
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_monstro", "root", "root");
 
-        listaMonstros = new ArrayList<>();
+            PreparedStatement sql = con.prepareStatement("SELECT * FROM Monstro");
 
-        while (br2.ready()) {
+            ResultSet rs = sql.executeQuery();
 
-            String linha = br2.readLine();
+            List<Monstro> monstros = new ArrayList<>();
 
-            String[] s = linha.split(";");
+            while (rs.next()) {
 
-            m = new Monstro();
+                Monstro m = new Monstro();
 
-            m.setId(s[0]);
-            m.setNome(s[1]);
-            m.setQuantidade(Integer.parseInt(s[2]));
-            m.setUnidade(Integer.parseInt(s[3]));
-            m.setValor(Double.parseDouble(s[4]));
+                m.setId(rs.getString("id"));
+                m.setNome(rs.getString("nome"));
+                m.setQuantidade(rs.getInt("quantidade"));
+                m.setUnidade(rs.getInt("unidade"));
+                m.setValor(rs.getDouble("valor"));
 
-            listaMonstros.add(m);
+                monstros.add(m);
 
+            }
+
+            req.setAttribute("listar", monstros);
+            RequestDispatcher r = req.getRequestDispatcher("listarBuscar.jsp");
+            r.forward(req, resp);
+
+            rs.close();
+
+        } catch (Exception e) {
+
+            System.out.println("não foi possivel listar");
         }
-
-        for (int i = 0; i < listaMonstros.size(); i++) {
-
-            System.out.println("listar: "+listaMonstros.get(i).getId());
-            
-            m = new Monstro();
-            
-            m = listaMonstros.get(i);
-
-        }
-
-        req.setAttribute("listar", listaMonstros);
-        RequestDispatcher r = req.getRequestDispatcher("listarBuscar.jsp");
-        r.forward(req, resp);
-
-        fr2.close();
-        br2.close();
 
     }
 

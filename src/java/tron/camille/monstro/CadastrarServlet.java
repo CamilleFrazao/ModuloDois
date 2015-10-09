@@ -46,8 +46,9 @@ public class CadastrarServlet extends HttpServlet {
             
         } catch (Exception ex) {
 
+            System.out.println("não salvou o cadastro");
             Logger.getLogger(CadastrarServlet.class.getName()).log(Level.SEVERE, null, ex);
-
+            
         } finally {
 
         }
