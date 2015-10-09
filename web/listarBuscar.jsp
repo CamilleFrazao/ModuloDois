@@ -55,9 +55,7 @@
                 </div>
                 <div class="col-sm-3"></div>
             </div>
-
-
-
+            
             <div class="row">
                 <div class="col-sm-3"></div>
                 <div class="col-sm-6">
@@ -68,6 +66,7 @@
                             <th>quantidade</th>
                             <th>unidade</th>
                             <th>valor</th>
+                            <th>opções</th>
                         </tr>
                         <c:forEach items="${listar}" var="id" >
                             <tr>
@@ -76,13 +75,13 @@
                                 <td>${id.getQuantidade()}</td>
                                 <td>${id.getUnidade()}</td>
                                 <td>${id.getValor()}</td>
+                                <td><a  >excluir</a> </td>
                             </tr>
-                        </c:forEach>
+                        </c:forEach>                            
                     </table>
                 </div>
                 <div class="col-sm-3"></div>
             </div>
-
         </div>
 
     </body>
