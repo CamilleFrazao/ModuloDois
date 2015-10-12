@@ -11,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -21,31 +22,24 @@ public class TestarConexao {
     public static void main(String[] args) {
 
         try {
-
+            //registrar driver
             DriverManager.registerDriver(new com.mysql.jdbc.Driver());
-
+            //abrir conexao
             Connection conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_monstro", "root", "root");
-            PreparedStatement x = conexao.prepareStatement("SELECT * FROM Monstro WHERE id = 45");
 
-            ResultSet rs = x.executeQuery();
+            String d = JOptionPane.showInputDialog("id");
 
-            while (rs.next()) {
+            String id = JOptionPane.showInputDialog("id");
+            String nome = JOptionPane.showInputDialog("nome");
+            int quantidade  =Integer.parseInt( JOptionPane.showInputDialog("quantidade"));
+            int unidade  =Integer.parseInt( JOptionPane.showInputDialog("unidade"));
+            double valor = Double.parseDouble(JOptionPane.showInputDialog("valor"));
 
-                System.out.println(rs.getString("id") + ":" + rs.getString("nome") + ":" + rs.getInt("quantidade") + ":" + rs.getInt("unidade") + ":" + rs.getDouble("valor"));
+            conexao.prepareStatement("update monstro set id = "+id+", nome = "+nome+", quantidade = "+quantidade+", unidade = "+unidade+", valor = "+valor+" where id =" + d).execute();
 
-//                Monstro m = new Monstro();
-//                
-//                m.setId(rs.getString("id"));
-//                m.setNome(rs.getString("nome"));
-//                m.setQuantidade(rs.getInt("quantidade"));
-//                m.setUnidade(rs.getInt("unidade"));
-//                m.setValor(rs.getDouble("valor"));
-//                
-//                System.out.println(m.getId()+":"+m.getNome()+":"+m.getQuantidade()+":"+m.getUnidade()+":"+m.getValor());
-            }
-
+            conexao.commit();
             conexao.close();
-
+            
         } catch (Exception ex) {
 
             Logger.getLogger(TestarConexao.class.getName()).log(Level.SEVERE, null, ex);

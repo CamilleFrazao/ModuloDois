@@ -45,7 +45,7 @@ public class ListarBuscarServlet extends HttpServlet {
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_monstro", "root", "root");
 
             //sql
-            PreparedStatement sql = con.prepareStatement("SELECT * FROM Monstro where id =" + req.getParameter("campoBuscar") + "");
+            PreparedStatement sql = con.prepareStatement("SELECT * FROM monstro where id =" + req.getParameter("campoBuscar") + "");
 
             //executeQuery
             ResultSet rs = sql.executeQuery();
@@ -86,7 +86,7 @@ public class ListarBuscarServlet extends HttpServlet {
             //abrir conexao
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_monstro", "root", "root");
 
-            PreparedStatement sql = con.prepareStatement("SELECT * FROM Monstro");
+            PreparedStatement sql = con.prepareStatement("SELECT * FROM monstro");
 
             ResultSet rs = sql.executeQuery();
 

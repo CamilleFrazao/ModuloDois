@@ -31,7 +31,7 @@ public class CadastrarServlet extends HttpServlet {
             DriverManager.registerDriver(new com.mysql.jdbc.Driver());
             Connection conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_monstro", "root", "root");
 
-            System.out.println("INSERT INTO Monstro (id , nome, quantidade, unidade, valor) values (" + 
+            System.out.println("INSERT INTO monstro (id , nome, quantidade, unidade, valor) values (" + 
                     req.getParameter("campoCadastroID") + ",\"" + req.getParameter("campoCadastroNome") + "\"," + 
                     req.getParameter("campoCadastroQuantidade") + "," + req.getParameter("campoCadastroUnidade") + "," + 
                     req.getParameter("campoCadastroValor") + ")");

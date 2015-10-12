@@ -32,11 +32,17 @@ public class ExcluirEditar extends HttpServlet {
             DriverManager.registerDriver(new com.mysql.jdbc.Driver());
 
             //abrir conexao
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/db_monstro","root","root");
-            
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/db_monstro", "root", "root");
+
             //sql
-            PreparedStatement sql = con.prepareStatement("");
-            
+            con.prepareStatement("DELETE FROM monstro WHERE id = " + req.getParameter("id")).execute();
+
+            System.out.println("excluido");
+
+            con.close();
+
+            resp.sendRedirect("listarBuscar");
+
         } catch (Exception e) {
         }
 
