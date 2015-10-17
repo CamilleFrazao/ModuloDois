@@ -93,15 +93,19 @@ public class EditarServlet extends HttpServlet {
             
            
             
-            con.prepareStatement("UPDATE monstro SET id ="+req.getParameter("campoCadastroID")+" , nome= "+ req.getParameter("campoCadastroNome")+", "
+            con.prepareStatement("UPDATE monstro SET id ="+req.getParameter("campoCadastroID")+" , nome=" +" ' "+ req.getParameter("campoCadastroNome")+" ' "+", "
                     + "quantidade ="+req.getParameter("campoCadastroQuantidade")+" , unidade="+req.getParameter("campoCadastroUnidade")+" ,"
                       + " valor ="+req.getParameter("campoCadastroValor")+" WHERE id = "+m.getId()).execute(); 
             
-            System.out.println(("UPDATE monstro SET id ="+req.getParameter("campoCadastroID")+" , nome= "+ req.getParameter("campoCadastroNome")+", "
+            System.out.println(("UPDATE monstro SET id ="+req.getParameter("campoCadastroID")+" , nome=" +" ' "+ req.getParameter("campoCadastroNome")+" ' "+", "
                     + "quantidade ="+req.getParameter("campoCadastroQuantidade")+" , unidade="+req.getParameter("campoCadastroUnidade")+" ,"
                     + " valor ="+req.getParameter("campoCadastroValor")+" WHERE id = "+m.getId()));
            
         } catch (Exception e) {
+            
+                System.out.println(("UPDATE monstro SET id ="+req.getParameter("campoCadastroID")+" , nome= " +" ' "+ req.getParameter("campoCadastroNome")+" ' "+", "
+                    + "quantidade ="+req.getParameter("campoCadastroQuantidade")+" , unidade="+req.getParameter("campoCadastroUnidade")+" ,"
+                    + " valor ="+req.getParameter("campoCadastroValor")+" WHERE id = "+m.getId()));
             
             System.out.println("não fez update");
             
