@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tron.camille.monstro;
+package testes;
 
+import banco.Banco;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -22,10 +23,8 @@ public class TestarConexao {
     public static void main(String[] args) {
 
         try {
-            //registrar driver
-            DriverManager.registerDriver(new com.mysql.jdbc.Driver());
-            //abrir conexao
-            Connection conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_monstro", "root", "root");
+            
+            Banco.abrirConexao();
 
             String d = JOptionPane.showInputDialog("id");
 
@@ -35,10 +34,10 @@ public class TestarConexao {
             int unidade  =Integer.parseInt( JOptionPane.showInputDialog("unidade"));
             double valor = Double.parseDouble(JOptionPane.showInputDialog("valor"));
 
-            conexao.prepareStatement("update monstro set id = "+id+", nome = "+nome+", quantidade = "+quantidade+", unidade = "+unidade+", valor = "+valor+" where id =" + d).execute();
+            Banco.abrirConexao().prepareStatement("update monstro set id = "+id+", nome = "+nome+", quantidade = "+quantidade+", unidade = "+unidade+", valor = "+valor+" where id =" + d).execute();
 
-            conexao.commit();
-            conexao.close();
+            Banco.abrirConexao().commit();
+            Banco.abrirConexao().close();
             
         } catch (Exception ex) {
 

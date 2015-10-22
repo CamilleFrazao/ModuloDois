@@ -3,11 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tron.camille.monstro;
+package servlets;
 
+import banco.Banco;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -18,6 +17,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import tron.camille.monstro.Monstro;
 
 /**
  *
@@ -38,14 +38,10 @@ public class ListarBuscarServlet extends HttpServlet {
         List<Monstro> monstros = new ArrayList<>();
 
         try {
+            
+            Banco.abrirConexao();
 
-            //registar driver
-            DriverManager.registerDriver(new com.mysql.jdbc.Driver());
-            //abrir conexao
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_monstro", "root", "root");
-
-            //sql
-            PreparedStatement sql = con.prepareStatement("SELECT * FROM monstro where id =" + req.getParameter("campoBuscar") + "");
+            PreparedStatement sql = Banco.abrirConexao().prepareStatement("SELECT * FROM monstro where id =" + req.getParameter("campoBuscar") + "");
 
             //executeQuery
             ResultSet rs = sql.executeQuery();
@@ -80,13 +76,10 @@ public class ListarBuscarServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         try {
-            //driver
-            DriverManager.registerDriver(new com.mysql.jdbc.Driver());
 
-            //abrir conexao
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_monstro", "root", "root");
-
-            PreparedStatement sql = con.prepareStatement("SELECT * FROM monstro");
+            Banco.abrirConexao();
+            
+            PreparedStatement sql = Banco.abrirConexao().prepareStatement("SELECT * FROM monstro");
 
             ResultSet rs = sql.executeQuery();
 

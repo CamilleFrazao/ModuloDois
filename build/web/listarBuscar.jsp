@@ -75,7 +75,7 @@
                                 <td>${id.getQuantidade()}</td>
                                 <td>${id.getUnidade()}</td>
                                 <td>${id.getValor()}</td>
-                                <td><a href="excluirEditar?id=${id.getId()}" >excluir</a>  <a>editar</a> </td>                               
+                                <td><a href="excluirEditar?id=${id.getId()}" >excluir</a>  <a href="editar?id=${id.getId()}">editar</a></td>                               
                             </tr>
                         </c:forEach>                            
                     </table>

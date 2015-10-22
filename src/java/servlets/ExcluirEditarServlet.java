@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tron.camille.monstro;
+package servlets;
 
+import banco.Banco;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -20,7 +21,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author camille
  */
 @WebServlet(urlPatterns = "/excluirEditar")
-public class ExcluirEditar extends HttpServlet {
+public class ExcluirEditarServlet extends HttpServlet {
 
     //excluir
     @Override
@@ -28,18 +29,13 @@ public class ExcluirEditar extends HttpServlet {
 
         try {
 
-            //driver
-            DriverManager.registerDriver(new com.mysql.jdbc.Driver());
-
-            //abrir conexao
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/db_monstro", "root", "root");
-
-            //sql
-            con.prepareStatement("DELETE FROM monstro WHERE id = " + req.getParameter("id")).execute();
+            Banco.abrirConexao();
+            
+            Banco.abrirConexao().prepareStatement("DELETE FROM monstro WHERE id = " + req.getParameter("id")).execute();
 
             System.out.println("excluido");
 
-            con.close();
+            Banco.abrirConexao().close();
 
             resp.sendRedirect("listarBuscar");
 
