@@ -1,2 +1,2 @@
 create database db_monstro
-create table monstro (id varchar(2), nome varchar(255), quantidade int, unidade int, valor double)
+create table monstro (p_id int NOT NULL AUTO_INCREMENT, nome varchar(100), quantidade int, unidade int, valor double, primary key(p_id));
