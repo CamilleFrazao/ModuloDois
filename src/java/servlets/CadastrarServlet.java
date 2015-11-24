@@ -7,6 +7,7 @@ package servlets;
 
 import banco.Banco;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -29,22 +30,20 @@ public class CadastrarServlet extends HttpServlet {
 
         try {
 
-            System.out.println("INSERT INTO monstro (id , nome, quantidade, unidade, valor) values ("
-                    + req.getParameter("campoCadastroID") + ",\"" + req.getParameter("campoCadastroNome") + "\","
+            System.out.println("INSERT INTO monstro (nome, quantidade, unidade, valor) values ("+"\""+ req.getParameter("campoCadastroNome") + "\","
                     + req.getParameter("campoCadastroQuantidade") + "," + req.getParameter("campoCadastroUnidade") + ","
                     + req.getParameter("campoCadastroValor") + ")");
 
-            Banco.abrirConexao().prepareStatement("INSERT INTO monstro (id , nome, quantidade, unidade, valor) values "
-                    + "(" + req.getParameter("campoCadastroID") + ",\""
-                    + req.getParameter("campoCadastroNome") + "\"," + req.getParameter("campoCadastroQuantidade") + ","
-                    + req.getParameter("campoCadastroUnidade") + "," + req.getParameter("campoCadastroValor") + ")").execute();
+            Banco.abrirConexao().prepareStatement("INSERT INTO monstro (nome, quantidade, unidade, valor) values ("+"\""+ req.getParameter("campoCadastroNome") + "\","
+                    + req.getParameter("campoCadastroQuantidade") + "," + req.getParameter("campoCadastroUnidade") + ","
+                    + req.getParameter("campoCadastroValor") + ")").execute();
 
-            Banco.abrirConexao().commit();
+//            Banco.abrirConexao().commit();
             Banco.abrirConexao().close();
 
         } catch (Exception ex) {
 
-            Logger.getLogger(CadastrarServlet.class.getName()+"não salvou o cadastro").log(Level.SEVERE, null, ex);
+            Logger.getLogger(CadastrarServlet.class.getName() + "não salvou o cadastro").log(Level.SEVERE, null, ex);
 
         } finally {
 

@@ -44,10 +44,6 @@
                     <form class="form-group" action="cadastrar" method="post">
 
                         <div class="form-group">
-                            <label>Id:</label>
-                            <input name="campoCadastroID" type="text" class="form-control">
-                        </div>    
-                        <div class="form-group">
                             <label>Nome:</label>
                             <input name="campoCadastroNome" type="text" class="form-control">
                         </div>

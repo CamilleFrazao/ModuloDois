@@ -61,7 +61,7 @@
                 <div class="col-sm-6">
                     <table class="table table-bordered">
                         <tr>
-                            <th>id</th>
+                            <th>#</th>
                             <th>nome</th>
                             <th>quantidade</th>
                             <th>unidade</th>
@@ -75,7 +75,7 @@
                                 <td>${id.getQuantidade()}</td>
                                 <td>${id.getUnidade()}</td>
                                 <td>${id.getValor()}</td>
-                                <td><a href="excluirEditar?id=${id.getId()}" >excluir</a>  <a href="editar?id=${id.getId()}">editar</a></td>                               
+                                <td><a href="excluirEditar?nome=${id.getNome()}" >excluir</a>  <a href="editar?nome=${id.getNome()}">editar</a></td>                               
                             </tr>
                         </c:forEach>                            
                     </table>

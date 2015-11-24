@@ -39,7 +39,7 @@ public class EditarServlet extends HttpServlet {
 
             Banco.abrirConexao();
 
-            PreparedStatement x = Banco.abrirConexao().prepareStatement("SELECT * FROM monstro WHERE id = " + req.getParameter("id"));
+            PreparedStatement x = Banco.abrirConexao().prepareStatement("SELECT * FROM monstro WHERE nome = " +"\""+ req.getParameter("nome")+"\"");
 
             ResultSet rs = x.executeQuery();
 
@@ -47,7 +47,7 @@ public class EditarServlet extends HttpServlet {
 
                 System.out.println("no while");
 
-                m.setId(rs.getString("id"));
+                m.setId(rs.getString("p_id"));
                 m.setNome(rs.getString("nome"));
                 m.setQuantidade(rs.getInt("quantidade"));
                 m.setUnidade(rs.getInt("unidade"));
@@ -60,7 +60,7 @@ public class EditarServlet extends HttpServlet {
             req.setAttribute("editar", m);
             req.setAttribute("aff", m.getId());
             RequestDispatcher rd = req.getRequestDispatcher("editar.jsp");
-            System.out.println(m.getId());
+            System.out.println(m.getNome());
             rd.forward(req, resp);
 
             Banco.abrirConexao().commit();
@@ -80,11 +80,11 @@ public class EditarServlet extends HttpServlet {
             
             Banco.abrirConexao();
 
-            Banco.abrirConexao().prepareStatement("UPDATE monstro SET id =" + req.getParameter("campoCadastroID") + " , nome=" + " ' " + req.getParameter("campoCadastroNome") + " ' " + ", "
+            Banco.abrirConexao().prepareStatement("UPDATE monstro SET nome=" + " ' " + req.getParameter("campoCadastroNome") + " ' " + ", "
                     + "quantidade =" + req.getParameter("campoCadastroQuantidade") + " , unidade=" + req.getParameter("campoCadastroUnidade") + " ,"
-                    + " valor =" + req.getParameter("campoCadastroValor") + " WHERE id = " + m.getId()).execute();
+                    + " valor =" + req.getParameter("campoCadastroValor") + " WHERE nome = "+"\"" + m.getNome()+"\"").execute();
 
-            System.out.println(("UPDATE monstro SET id =" + req.getParameter("campoCadastroID") + " , nome=" + " ' " + req.getParameter("campoCadastroNome") + " ' " + ", "
+            System.out.println(("UPDATE monstro SET nome=" + " ' " + req.getParameter("campoCadastroNome") + " ' " + ", "
                     + "quantidade =" + req.getParameter("campoCadastroQuantidade") + " , unidade=" + req.getParameter("campoCadastroUnidade") + " ,"
                     + " valor =" + req.getParameter("campoCadastroValor") + " WHERE id = " + m.getId()));
 

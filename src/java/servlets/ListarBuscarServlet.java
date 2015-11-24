@@ -41,7 +41,7 @@ public class ListarBuscarServlet extends HttpServlet {
             
             Banco.abrirConexao();
 
-            PreparedStatement sql = Banco.abrirConexao().prepareStatement("SELECT * FROM monstro where id =" + req.getParameter("campoBuscar") + "");
+            PreparedStatement sql = Banco.abrirConexao().prepareStatement("SELECT * FROM monstro where nome =" + "\"" +req.getParameter("campoBuscar") +"\"" +"");
 
             //executeQuery
             ResultSet rs = sql.executeQuery();
@@ -49,8 +49,7 @@ public class ListarBuscarServlet extends HttpServlet {
             while (rs.next()) {
                 
                 Monstro m = new Monstro();
-                
-                m.setId(rs.getString("id"));
+                m.setId(rs.getString("p_id"));
                 m.setNome(rs.getString("nome"));
                 m.setQuantidade(rs.getInt("quantidade"));
                 m.setUnidade(rs.getInt("unidade"));
@@ -89,7 +88,7 @@ public class ListarBuscarServlet extends HttpServlet {
 
                 Monstro m = new Monstro();
 
-                m.setId(rs.getString("id"));
+                m.setId(rs.getString("p_id"));
                 m.setNome(rs.getString("nome"));
                 m.setQuantidade(rs.getInt("quantidade"));
                 m.setUnidade(rs.getInt("unidade"));
