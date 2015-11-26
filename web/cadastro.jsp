@@ -17,6 +17,40 @@
     <body>
 
         <!-- tudo -->
+
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+
+                    <a class="navbar-brand" href="menu.jsp">Menu</a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <!--<li class="active"><a href="listarBuscar">Produtos<span class="sr-only">(current)</span></a></li>-->
+                        <!--<li><a href="#">Link2</a></li>-->
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" 
+                               role="button" aria-haspopup="true" aria-expanded="false">Produto <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="listarBuscar">Produtos</a></li>
+                                <li><a href="cadastro.jsp">Cadastrar</a></li>
+                                <!--<li><a href="#">Something else here</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="#">Separated link</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="#">One more separated link</a></li>-->
+                            </ul>
+                        </li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+
+
         <div>
 
             <!-- cabeçalho -->
@@ -32,7 +66,7 @@
             <div class="row">
                 <div class="col-sm-3"></div>
                 <div class="col-sm-6">
-                    <p><a href="menu.jsp">Menu</a> 
+                    <!--<p><a href="menu.jsp">Menu</a>--> 
                 </div>
                 <div class="col-sm-3"></div>
             </div>
@@ -45,19 +79,20 @@
 
                         <div class="form-group">
                             <label>Nome:</label>
-                            <input name="campoCadastroNome" type="text" class="form-control">
+                            <input name="campoCadastroNome" type="text" class="form-control" required="true">
                         </div>
                         <div class="form-group">
                             <label>Quantidade:</label>
-                            <input name="campoCadastroQuantidade" type="text" class="form-control">
+                            <input name="campoCadastroQuantidade" type="number" class="form-control" required="true">
                         </div> 
                         <div class="form-group">
                             <label>Unidade:</label>
-                            <input name="campoCadastroUnidade" type="text" class="form-control">
+                            <input name="campoCadastroUnidade" type="number" class="form-control" required="true">
                         </div>
                         <div class="form-group">
                             <label>Valor:</label>
-                            <input name="campoCadastroValor" type="text" class="form-control">
+                            <input name="campoCadastroValor" type="number" name="currency" min="0" max="9999" step="0.01" size="4" 
+                                   title="CDA Currency Format - no dollar sign and no comma(s) - cents (.##) are optional" class="form-control" required="true">
                         </div>
 
                         <button class="btn btn-success" type="submit">Cadastrar</button>
@@ -68,6 +103,10 @@
             </div>
 
         </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="js/bootstrap.min.js"></script>
 
     </body>
 </html>
