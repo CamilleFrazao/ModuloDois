@@ -81,7 +81,7 @@
 
                         <div class="form-group">
                             <label>Buscar:</label>
-                            <input type="text" name="campoBuscar"class="form-control">
+                            <input type="text" name="campoBuscar"class="form-control" placeholder="Nome do Produto">
                         </div>                
 
                         <button type="submit" class="btn btn-success">ok</button>
