@@ -23,7 +23,6 @@
             <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
-
                     <a class="navbar-brand" href="menu.jsp">Menu</a>
                 </div>
 
@@ -37,7 +36,7 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" 
                                role="button" aria-haspopup="true" aria-expanded="false">Produto <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="listarBuscar">Produtos</a></li>
+                                <li class="disabled"><a href="listarBuscar">Produtos</a></li>
                                 <li><a href="cadastro.jsp">Cadastrar</a></li>
                                 <!--<li><a href="#">Something else here</a></li>
                                     <li role="separator" class="divider"></li>
@@ -108,7 +107,7 @@
                                 <td>${id.getNome()}</td>
                                 <td>${id.getQuantidade()}</td>
                                 <td>${id.getUnidade()}</td>
-                                <td>${id.getValor()}</td>
+                                <td>${id.getValorForm()}</td>
                                 <td><a href="excluirEditar?nome=${id.getNome()}" >excluir</a>  <a href="editar?nome=${id.getNome()}">editar</a></td>                               
                             </tr>
                         </c:forEach>                            

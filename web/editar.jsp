@@ -72,7 +72,7 @@
             </div>
             <div class="form-group">
                 <label>Valor:</label>
-                <input name="campoCadastroValor" type="text" class="form-control" value="${editar.getValor()}" required="true"/>
+                <input name="campoCadastroValor" type="text" class="form-control" value="${editar.getValorForm()}" required="true"/>
             </div>
 
             <button class="btn btn-success" type="submit">Cadastrar</button>

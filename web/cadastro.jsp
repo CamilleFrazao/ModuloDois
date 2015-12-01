@@ -37,7 +37,7 @@
                                role="button" aria-haspopup="true" aria-expanded="false">Produto <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="listarBuscar">Produtos</a></li>
-                                <li><a href="cadastro.jsp">Cadastrar</a></li>
+                                <li class="disabled" ><a href="cadastro.jsp">Cadastrar</a></li>
                                 <!--<li><a href="#">Something else here</a></li>
                                     <li role="separator" class="divider"></li>
                                     <li><a href="#">Separated link</a></li>
@@ -91,8 +91,8 @@
                         </div>
                         <div class="form-group">
                             <label>Valor:</label>
-                            <input name="campoCadastroValor" type="number" name="currency" min="0" max="9999" step="0.01" size="4" 
-                                   title="CDA Currency Format - no dollar sign and no comma(s) - cents (.##) are optional" class="form-control" required="true">
+                            <input name="campoCadastroValor" type="number" name="currency" min="0"  step="0.01" size="4" 
+                                   class="form-control" required="true">
                         </div>
 
                         <button class="btn btn-success" type="submit">Cadastrar</button>
