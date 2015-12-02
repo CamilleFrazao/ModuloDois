@@ -31,11 +31,9 @@ public class CadastrarServlet extends HttpServlet {
 
         Banco.abrirConexao();
         
-        long dez = 9999999999L;
-        long vinte = dez*dez;
 
-        if (req.getParameter("campoCadastroNome").length() > 100 || req.getParameter("campoCadastroQuantidade").length() > dez
-                || req.getParameter("campoCadastroUnidade").length() > dez || req.getParameter("campoCadastroValor").length()>vinte) {
+        if (req.getParameter("campoCadastroNome").length() > 100 || req.getParameter("campoCadastroQuantidade").length() > 10
+                || req.getParameter("campoCadastroUnidade").length() > 10 || req.getParameter("campoCadastroValor").length()>22) {
             System.out.println("deu merda, nome/quantidade/unidade/valor muito grande");
 
             try {
