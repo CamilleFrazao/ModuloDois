@@ -7,6 +7,7 @@ package servlets;
 
 import banco.Banco;
 import java.io.IOException;
+import java.math.BigInteger;
 import java.sql.SQLException;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
@@ -29,25 +30,42 @@ public class CadastrarServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         Banco.abrirConexao();
+        
+        long dez = 9999999999L;
+        long vinte = dez*dez;
 
-        try {
+        if (req.getParameter("campoCadastroNome").length() > 100 || req.getParameter("campoCadastroQuantidade").length() > dez
+                || req.getParameter("campoCadastroUnidade").length() > dez || req.getParameter("campoCadastroValor").length()>vinte) {
+            System.out.println("deu merda, nome/quantidade/unidade/valor muito grande");
 
-            System.out.println("INSERT INTO monstro (nome, quantidade, unidade, valor) values (" + "\"" + req.getParameter("campoCadastroNome") + "\","
-                    + req.getParameter("campoCadastroQuantidade") + "," + req.getParameter("campoCadastroUnidade") + ","
-                    + req.getParameter("campoCadastroValor") + ")");
+            try {
+                Banco.abrirConexao().close();
+            } catch (SQLException ex) {
+                Logger.getLogger(CadastrarServlet.class.getName()).log(Level.SEVERE, null, ex);
+            }
 
-            Banco.abrirConexao().prepareStatement("INSERT INTO monstro (nome, quantidade, unidade, valor) values (" + "\"" + req.getParameter("campoCadastroNome") + "\","
-                    + req.getParameter("campoCadastroQuantidade") + "," + req.getParameter("campoCadastroUnidade") + ","
-                    + req.getParameter("campoCadastroValor") + ")").execute();
+        } else {
+
+            try {
+
+                System.out.println("INSERT INTO monstro (nome, quantidade, unidade, valor) values (" + "\"" + req.getParameter("campoCadastroNome") + "\","
+                        + req.getParameter("campoCadastroQuantidade") + "," + req.getParameter("campoCadastroUnidade") + ","
+                        + req.getParameter("campoCadastroValor") + ")");
+
+                Banco.abrirConexao().prepareStatement("INSERT INTO monstro (nome, quantidade, unidade, valor) values (" + "\"" + req.getParameter("campoCadastroNome") + "\","
+                        + req.getParameter("campoCadastroQuantidade") + "," + req.getParameter("campoCadastroUnidade") + ","
+                        + req.getParameter("campoCadastroValor") + ")").execute();
 
 //            Banco.abrirConexao().commit();
-            Banco.abrirConexao().close();
+                Banco.abrirConexao().close();
 
-        } catch (Exception ex) {
+            } catch (Exception ex) {
 
-            Logger.getLogger(CadastrarServlet.class.getName() + "não salvou o cadastro").log(Level.SEVERE, null, ex);
+                Logger.getLogger(CadastrarServlet.class.getName() + "não salvou o cadastro").log(Level.SEVERE, null, ex);
 
-        } finally {
+            } finally {
+
+            }
 
         }
 

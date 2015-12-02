@@ -79,20 +79,37 @@
 
                         <div class="form-group">
                             <label>Nome:</label>
-                            <input name="campoCadastroNome" type="text" class="form-control" required="true">
+                            <input name="campoCadastroNome" type="text" maxlength="100" title="max 100" class="form-control" required="true">
                         </div>
                         <div class="form-group">
                             <label>Quantidade:</label>
-                            <input name="campoCadastroQuantidade" type="number" class="form-control" required="true">
+                            <input name="campoCadastroQuantidade" type="number"
+
+                                   maxlength = "10"
+                                   min = "1"
+                                   max = "9999999999"
+
+                                   title="Valor não permitido" class="form-control" required="true">
                         </div> 
                         <div class="form-group">
                             <label>Unidade:</label>
-                            <input name="campoCadastroUnidade" type="number" class="form-control" required="true">
+                            <input name="campoCadastroUnidade" type="number" 
+
+                                   maxlength = "10"
+                                   min = "1"
+                                   max = "9999999999"
+
+                                   required title="Valor não permitido" class="form-control" required="true">
                         </div>
                         <div class="form-group">
                             <label>Valor:</label>
-                            <input name="campoCadastroValor" type="number" name="currency" min="0"  step="0.01" size="4" 
-                                   class="form-control" required="true">
+                            <input name="campoCadastroValor" type="number" 
+
+                                   maxlength = "22"
+                                   min = "1"
+                                   max = "9999999999999999999999"
+
+                                   required title="Valor não permitido" name="currency" step="0.01" size="4" class="form-control" required="true">
                         </div>
 
                         <button class="btn btn-success" type="submit">Cadastrar</button>
