@@ -31,7 +31,7 @@ public class ExcluirEditarServlet extends HttpServlet {
 
             Banco.abrirConexao();
             
-            Banco.abrirConexao().prepareStatement("DELETE FROM monstro WHERE nome = " + "\""+req.getParameter("nome")+"\"").execute();
+            Banco.abrirConexao().prepareStatement("DELETE FROM monstro WHERE p_id = "+req.getParameter("id")+"").execute();
 
             System.out.println("excluido");
 

@@ -39,7 +39,7 @@ public class EditarServlet extends HttpServlet {
 
             Banco.abrirConexao();
 
-            PreparedStatement x = Banco.abrirConexao().prepareStatement("SELECT * FROM monstro WHERE nome = " +"\""+ req.getParameter("nome")+"\"");
+            PreparedStatement x = Banco.abrirConexao().prepareStatement("SELECT * FROM monstro WHERE p_id = "+ req.getParameter("id")+"");
 
             ResultSet rs = x.executeQuery();
 

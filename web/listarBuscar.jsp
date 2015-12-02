@@ -108,7 +108,7 @@
                                 <td>${id.getQuantidade()}</td>
                                 <td>${id.getUnidade()}</td>
                                 <td>${id.getValorForm()}</td>
-                                <td><a href="excluirEditar?nome=${id.getNome()}" >excluir</a>  <a href="editar?nome=${id.getNome()}">editar</a></td>                               
+                                <td><a href="excluirEditar?id=${id.getId()}">excluir</a>  <a href="editar?id=${id.getId()}">editar</a></td>                               
                             </tr>
                         </c:forEach>                            
                     </table>
