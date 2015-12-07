@@ -39,7 +39,7 @@ public class EditarServlet extends HttpServlet {
 
             Banco.abrirConexao();
 
-            PreparedStatement x = Banco.abrirConexao().prepareStatement("SELECT * FROM monstro WHERE p_id = "+ req.getParameter("id")+"");
+            PreparedStatement x = Banco.abrirConexao().prepareStatement("SELECT * FROM produto WHERE p_id = "+ req.getParameter("id")+"");
 
             ResultSet rs = x.executeQuery();
 
@@ -80,17 +80,17 @@ public class EditarServlet extends HttpServlet {
             
             Banco.abrirConexao();
 
-            Banco.abrirConexao().prepareStatement("UPDATE monstro SET nome=" + " ' " + req.getParameter("campoCadastroNome") + " ' " + ", "
+            Banco.abrirConexao().prepareStatement("UPDATE produto SET nome=" + " ' " + req.getParameter("campoCadastroNome") + " ' " + ", "
                     + "quantidade =" + req.getParameter("campoCadastroQuantidade") + " , unidade=" + req.getParameter("campoCadastroUnidade") + " ,"
                     + " valor =" + req.getParameter("campoCadastroValor") + " WHERE nome = "+"\"" + m.getNome()+"\"").execute();
 
-            System.out.println(("UPDATE monstro SET nome=" + " ' " + req.getParameter("campoCadastroNome") + " ' " + ", "
+            System.out.println(("UPDATE produto SET nome=" + " ' " + req.getParameter("campoCadastroNome") + " ' " + ", "
                     + "quantidade =" + req.getParameter("campoCadastroQuantidade") + " , unidade=" + req.getParameter("campoCadastroUnidade") + " ,"
                     + " valor =" + req.getParameter("campoCadastroValor") + " WHERE id = " + m.getId()));
 
         } catch (Exception e) {
 
-            System.out.println(("UPDATE monstro SET id =" + req.getParameter("campoCadastroID") + " , nome= " + " ' " + req.getParameter("campoCadastroNome") + " ' " + ", "
+            System.out.println(("UPDATE produto SET id =" + req.getParameter("campoCadastroID") + " , nome= " + " ' " + req.getParameter("campoCadastroNome") + " ' " + ", "
                     + "quantidade =" + req.getParameter("campoCadastroQuantidade") + " , unidade=" + req.getParameter("campoCadastroUnidade") + " ,"
                     + " valor =" + req.getParameter("campoCadastroValor") + " WHERE id = " + m.getId()));
 

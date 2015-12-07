@@ -7,10 +7,7 @@ package servlets;
 
 import banco.Banco;
 import java.io.IOException;
-import java.math.BigInteger;
 import java.sql.SQLException;
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -31,7 +28,6 @@ public class CadastrarServlet extends HttpServlet {
 
         Banco.abrirConexao();
         
-
         if (req.getParameter("campoCadastroNome").length() > 100 || req.getParameter("campoCadastroQuantidade").length() > 10
                 || req.getParameter("campoCadastroUnidade").length() > 10 || req.getParameter("campoCadastroValor").length()>22) {
             System.out.println("deu merda, nome/quantidade/unidade/valor muito grande");
@@ -46,11 +42,11 @@ public class CadastrarServlet extends HttpServlet {
 
             try {
 
-                System.out.println("INSERT INTO monstro (nome, quantidade, unidade, valor) values (" + "\"" + req.getParameter("campoCadastroNome") + "\","
+                System.out.println("INSERT INTO produto (nome, quantidade, unidade, valor) values (" + "\"" + req.getParameter("campoCadastroNome") + "\","
                         + req.getParameter("campoCadastroQuantidade") + "," + req.getParameter("campoCadastroUnidade") + ","
                         + req.getParameter("campoCadastroValor") + ")");
 
-                Banco.abrirConexao().prepareStatement("INSERT INTO monstro (nome, quantidade, unidade, valor) values (" + "\"" + req.getParameter("campoCadastroNome") + "\","
+                Banco.abrirConexao().prepareStatement("INSERT INTO produto (nome, quantidade, unidade, valor) values (" + "\"" + req.getParameter("campoCadastroNome") + "\","
                         + req.getParameter("campoCadastroQuantidade") + "," + req.getParameter("campoCadastroUnidade") + ","
                         + req.getParameter("campoCadastroValor") + ")").execute();
 

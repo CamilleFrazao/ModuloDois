@@ -45,87 +45,94 @@
                                     <li><a href="#">One more separated link</a></li>-->
                             </ul>
                         </li>
-                    </ul>
-                </div><!-- /.navbar-collapse -->
-            </div><!-- /.container-fluid -->
-        </nav>
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" 
+                               role="button" aria-haspopup="true" aria-expanded="false">Cliente <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Clientes</a></li>
+                                <li class="" ><a href="cadastroCliente.jsp">Cadastrar</a></li>
+                            </ul>
+                            </div><!-- /.navbar-collapse -->
+                            </div><!-- /.container-fluid -->
+                            </nav>
 
 
-        <div>
+                            <div>
 
-            <!-- cabeçalho -->
-            <div class="row">
-                <div class="col-sm-3"></div>
-                <div class="col-sm-6">
-                    <h1>Cadastro de Produto</h1>
-                </div>
-                <div class="col-sm-3"></div>
-            </div>
+                                <!-- cabeçalho -->
+                                <div class="row">
+                                    <div class="col-sm-3"></div>
+                                    <div class="col-sm-6">
+                                        <h1>Cadastro de Produto</h1>
+                                    </div>
+                                    <div class="col-sm-3"></div>
+                                </div>
 
-            <!-- corpo -->
-            <div class="row">
-                <div class="col-sm-3"></div>
-                <div class="col-sm-6">
-                    <!--<p><a href="menu.jsp">Menu</a>--> 
-                </div>
-                <div class="col-sm-3"></div>
-            </div>
+                                <!-- corpo -->
+                                <div class="row">
+                                    <div class="col-sm-3"></div>
+                                    <div class="col-sm-6">
+                                        <!--<p><a href="menu.jsp">Menu</a>--> 
+                                    </div>
+                                    <div class="col-sm-3"></div>
+                                </div>
 
-            <!-- rodapé -->
-            <div class="row">
-                <div class="col-sm-3"></div>
-                <div class="col-sm-6">
-                    <form class="form-group" action="cadastrar" method="post">
+                                <!-- rodapé -->
+                                <div class="row">
+                                    <div class="col-sm-3"></div>
+                                    <div class="col-sm-6">
+                                        <form class="form-group" action="cadastrar" method="post">
 
-                        <div class="form-group">
-                            <label>Nome:</label>
-                            <input name="campoCadastroNome" type="text" maxlength="100" title="max 100" class="form-control" required="true">
-                        </div>
-                        <div class="form-group">
-                            <label>Quantidade:</label>
-                            <input name="campoCadastroQuantidade" type="number"
+                                            <div class="form-group">
+                                                <label>Nome:</label>
+                                                <input name="campoCadastroNome" type="text" maxlength="100" title="max 100" class="form-control" required="true">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Quantidade:</label>
+                                                <input name="campoCadastroQuantidade" type="number"
 
-                                   maxlength = "10"
-                                   min = "1"
-                                   max = "9999999999"
+                                                       maxlength = "10"
+                                                       min = "1"
+                                                       max = "9999999999"
 
-                                   title="Valor não permitido" class="form-control" required="true">
-                        </div> 
-                        <div class="form-group">
-                            <label>Unidade:</label>
-                            <input name="campoCadastroUnidade" type="number" 
+                                                       title="Valor não permitido" class="form-control" required="true">
+                                            </div> 
+                                            <div class="form-group">
+                                                <label>Unidade:</label>
+                                                <input name="campoCadastroUnidade" type="number" 
 
-                                   maxlength = "10"
-                                   min = "1"
-                                   max = "9999999999"
+                                                       maxlength = "10"
+                                                       min = "1"
+                                                       max = "9999999999"
 
-                                   required title="Valor não permitido" class="form-control" required="true">
-                        </div>
-                        <div class="form-group">
-                            <label>Valor:</label>
-                            <input name="campoCadastroValor" type="number" 
+                                                       required title="Valor não permitido" class="form-control" required="true">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Valor:</label>
+                                                <input name="campoCadastroValor" type="number" 
 
-                                   maxlength = "22"
-                                   min = "1"
-                                   max = "9999999999999999999999"
+                                                       maxlength = "22"
+                                                       min = "1"
+                                                       max = "9999999999999999999999"
 
-                                   required title="Valor não permitido" name="currency" step="0.01" size="4" class="form-control" required="true">
-                        </div>
+                                                       required title="Valor não permitido" name="currency" step="0.01" size="4" class="form-control" required="true">
+                                            </div>
 
-                        <button class="btn btn-success" type="submit">Cadastrar</button>
+                                            <button class="btn btn-success" type="submit">Cadastrar</button>
 
-                    </form>
-                </div>
-                <div class="col-sm-3"></div>
-            </div>
+                                        </form>
+                                    </div>
+                                    <div class="col-sm-3"></div>
+                                </div>
 
-        </div>
+                            </div>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <!-- Include all compiled plugins (below), or include individual files as needed -->
-        <script src="js/bootstrap.min.js"></script>
+                            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+                            <!-- Include all compiled plugins (below), or include individual files as needed -->
+                            <script src="js/bootstrap.min.js"></script>
 
-    </body>
-</html>
+                            </body>
+                            </html>
 
 

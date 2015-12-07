@@ -78,7 +78,7 @@ public class ListarBuscarServlet extends HttpServlet {
 
             Banco.abrirConexao();
             
-            PreparedStatement sql = Banco.abrirConexao().prepareStatement("SELECT * FROM monstro");
+            PreparedStatement sql = Banco.abrirConexao().prepareStatement("SELECT * FROM produto");
 
             ResultSet rs = sql.executeQuery();
 
